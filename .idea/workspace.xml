@@ -7,43 +7,6 @@
     <list default="true" id="555f0add-092e-4de1-a497-a94bcb7f166b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/planets.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/planets.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/planets/planets.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/planets/planets.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/img/background-large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/img/background-medium.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/img/background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/img/glow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/sound/abort.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/sound/click.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/sound/deploy.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/sound/success.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/sound/typing.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/sound/warning.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Centered.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Clickable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/requests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useLaunches.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/usePlanets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AppLayout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/History.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Launch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Upcoming.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/settings.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +120,7 @@
       <workItem from="1694205163638" duration="18000" />
       <workItem from="1694213476434" duration="54000" />
       <workItem from="1694213537589" duration="879000" />
-      <workItem from="1694259356519" duration="3870000" />
+      <workItem from="1694259356519" duration="4357000" />
     </task>
     <servers />
   </component>
