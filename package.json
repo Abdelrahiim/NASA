@@ -1,0 +1,19 @@
+{
+  "name": "nasa",
+  "version": "1.0.0",
+  "description": "Nasa Mission Control Project with React And Express",
+  "scripts": {
+    "serve":"npm run dev --prefix backend",
+    "watch": "npm start --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdelrahiim/NASA.git"
+  },
+  "author": "Abdelrahiim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdelrahiim/NASA/issues"
+  },
+  "homepage": "https://github.com/Abdelrahiim/NASA#readme"
+}
