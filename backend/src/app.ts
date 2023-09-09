@@ -1,7 +1,9 @@
 import express from "express"
 import morgan from "morgan";
 import PlanetsRouter from "./routes/planets/planets.router";
+import LaunchesRouter from "./routes/launches/launches.route";
 import cors from "cors"
+import path from "path";
 
 // Setting Up Express App
 const app = express();
@@ -13,15 +15,17 @@ app.use(cors({
     origin:"http://localhost:3000"
 }))
 
-app.use(morgan("dev"))
-
-// Routes
-app.use("/planets", PlanetsRouter)
+app.use(morgan("combined"))
+app.use(express.static(path.join(__dirname,"public","build")))
 
 
 // Demo EndPoint
-app.get("/", (req, res) => {
-    return res.json({msg: "Hello World"})
-})
 
+
+// Routers
+app.use("/planets", PlanetsRouter);
+app.use("/launches",LaunchesRouter )
+app.get("/*", (req, res) => {
+    return res.sendFile(path.join(__dirname,"public","build","index.html"))
+})
 export default app

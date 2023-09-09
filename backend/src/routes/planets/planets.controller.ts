@@ -6,6 +6,8 @@ import PlanetsModel from "../../models/planets.model";
 
 /**
  * List All planets Controller Function
+ * @param req
+ * @param res
  * @route GET api/planets
  * */
 function listAllPlanet(req: Request, res: Response) {
