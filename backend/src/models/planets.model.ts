@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import {parse} from "csv-parse"
+import path from "path";
 
 interface Planet {
     "kepid": number,
@@ -53,7 +54,7 @@ interface Planet {
     "koi_kepmag": number
 }
 
-const results: Planet[] = []
+const habitablePlanets: Planet[] = []
 
 function isHabitablePlanet(planet: Planet) {
     return (
@@ -64,23 +65,32 @@ function isHabitablePlanet(planet: Planet) {
     );
 }
 
-fs.createReadStream("./kepler_data.csv")
-    .pipe(parse({
-        comment: "#",
-        columns: true,
-    }))
-    .on("data", (data) => {
-        if (isHabitablePlanet(data)) {
-            results.push(data);
-        }
+// Loading The Data From The Csv File
+export function loadPlanetsDate() {
+    return new Promise<void>((resolve, reject) => {
+        fs.createReadStream(path.join(__dirname, "..", "..", "Data", "kepler_data.csv"))
+            .pipe(parse({
+                comment: "#",
+                columns: true,
+            }))
+            .on("data", (data) => {
+                if (isHabitablePlanet(data)) {
+                    habitablePlanets.push(data);
+                }
+            })
+            .on("error", (error) => {
+                // console.log("Error");
+                reject(error)
+                console.log(error);
+            })
+            .on("end", () => {
+                // console.log(habitablePlanets.map((planet) => planet["kepler_name"]));
+                console.log("done");
+                resolve()
+            });
     })
-    .on("error", (error) => {
-        // console.log("Error");
-        console.log(error);
-    })
-    .on("end", () => {
-        // console.log(results.map((planet) => planet["kepler_name"]));
-        console.log("done");
-    });
+}
 
-export default {planets: results}
+export default {
+    planets: habitablePlanets
+}

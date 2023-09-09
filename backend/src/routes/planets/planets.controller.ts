@@ -1,6 +1,6 @@
 import {Response, Request} from "express";
 import {StatusCodes} from "http-status-codes"
-import planets from "../../models/planets.model";
+import PlanetsModel from "../../models/planets.model";
 
 
 
@@ -9,7 +9,7 @@ import planets from "../../models/planets.model";
  * @route GET api/planets
  * */
 function listAllPlanet(req: Request, res: Response) {
-    return res.status(StatusCodes.OK).json(planets);
+    return res.status(StatusCodes.OK).json(PlanetsModel.planets);
 }
 
 

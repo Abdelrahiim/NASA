@@ -4,13 +4,11 @@ import PlanetsRouter from "./routes/planets/planets.router";
 import cors from "cors"
 
 // Setting Up Express App
-
 const app = express();
 
 // middleware
-app.use(express.json())
 
-// Cross Origin Middle
+app.use(express.json())
 app.use(cors({
     origin:"http://localhost:3000"
 }))
