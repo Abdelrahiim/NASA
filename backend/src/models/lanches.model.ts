@@ -15,10 +15,17 @@ const launch: Launch = {
 }
 launches.set(launch.flightNumber, launch)
 
+/**
+ * get All the Elements on launches Map
+ */
 function getAll() {
     return Array.from(launches.values());
 }
 
+/**
+ * Create New Launch and Add it To Launches map
+ * @param launch
+ */
 function createNewLaunch(launch: Launch) {
     latestFlightNumber += 100
     launches.set(latestFlightNumber, Object.assign(launch, {
@@ -30,8 +37,22 @@ function createNewLaunch(launch: Launch) {
     return launches.get(latestFlightNumber)
 }
 
+/**
+ * Check if launch with id Exists in the db
+ * @param launchId
+ */
+function existsLaunchWithId(launchId: number) {
+    return launches.has(launchId)
+}
 
-export {getAll, createNewLaunch}
+function abortLaunchById(launchId: number) {
+    const aborted = launches.get(launchId) as Launch;
+    aborted.success = false;
+    aborted.upcoming = false;
+    return aborted
+}
+
+export {getAll, createNewLaunch, existsLaunchWithId, abortLaunchById}
 
 
 

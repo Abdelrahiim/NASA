@@ -1,5 +1,5 @@
 {
-  "name": "nasa",
+  "name": "nasa-project",
   "version": "1.0.0",
   "description": "Nasa Mission Control Project with React And Express",
   "scripts": {

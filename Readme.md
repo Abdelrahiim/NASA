@@ -1,2 +1,3 @@
 # NASA Project
-using Node js and React 
+simple web application that uses React for the front-end and ExpressJS for the back-end
+
