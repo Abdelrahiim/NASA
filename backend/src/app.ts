@@ -16,7 +16,7 @@ app.use(cors({
 }))
 
 app.use(morgan("combined"))
-app.use(express.static(path.join(__dirname,"public","build")))
+app.use(express.static(path.join(__dirname,"..","public","build")))
 
 
 // Demo EndPoint
@@ -26,6 +26,6 @@ app.use(express.static(path.join(__dirname,"public","build")))
 app.use("/planets", PlanetsRouter);
 app.use("/launches",LaunchesRouter )
 app.get("/*", (req, res) => {
-    return res.sendFile(path.join(__dirname,"public","build","index.html"))
+    return res.sendFile(path.join(__dirname,"..","public","build","index.html"))
 })
 export default app

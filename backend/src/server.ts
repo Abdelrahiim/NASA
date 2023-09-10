@@ -2,7 +2,7 @@ import colors from "colors";
 import dotenv from "dotenv"
 import * as http from "http";
 import app from "./app";
-import {loadPlanetsDate} from "../src/models/planets.model"
+import {loadPlanetsDate} from "./models/planets.model"
 
 /*
 This is Responsible for Creating and Setting up Server
