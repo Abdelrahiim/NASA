@@ -18,7 +18,6 @@ describe(`Test ${colors.green("GET")} /launches`, () => {
 })
 
 
-
 /**
  * Testing Launch POST endpoint
  * POST /launches
@@ -68,7 +67,6 @@ describe(`Test ${colors.yellow("POST")} /launches`, () => {
             error: "All Fields Are Mandatory"
         })
     })
-
     // Invalid Date Case Test
     test("It Should Return Date Is Invalid ", async () => {
         const response = await Client.post("/launches")
@@ -81,4 +79,19 @@ describe(`Test ${colors.yellow("POST")} /launches`, () => {
 
     })
 
+})
+
+
+/**
+ * Test Launch DELETE End Point
+ * DELETE /launches:id
+ */
+describe(`Test ${colors.red("DELETE")} /launches:id`, () => {
+
+    // Test Case
+    test("It Should Return Status Code 200 And Content-Type = Application/json",async ()=>{
+        const response = await Client.del("/launches/200").expect(200).expect("Content-type", /json/)
+        expect(response.body.upcoming).toBe(false)
+        expect(response.body.success).toBe(false)
+    })
 })
