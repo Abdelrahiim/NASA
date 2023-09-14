@@ -1,4 +1,6 @@
 import {Launch} from "../types";
+import LaunchesModel from "./launches.mongo";
+
 
 let latestFlightNumber = 100;
 const launches = new Map<number, Launch>()

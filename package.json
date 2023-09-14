@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Abdelrahiim/NASA/issues"
   },
-  "homepage": "https://github.com/Abdelrahiim/NASA#readme"
+  "homepage": "https://github.com/Abdelrahiim/NASA#readme",
+  "dependencies": {
+    "pm2": "^5.3.0"
+  }
 }

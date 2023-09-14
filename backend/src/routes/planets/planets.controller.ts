@@ -1,7 +1,6 @@
 import {Response, Request} from "express";
 import {StatusCodes} from "http-status-codes"
-import PlanetsModel from "../../models/planets.model";
-
+import {listAllPlanets} from "../../models/planets.model";
 
 
 /**
@@ -10,11 +9,11 @@ import PlanetsModel from "../../models/planets.model";
  * @param res
  * @route GET api/planets
  * */
-function listAllPlanet(req: Request, res: Response) {
-    return res.status(StatusCodes.OK).json(PlanetsModel.planets);
+async function list(req: Request, res: Response) {
+    return res.status(StatusCodes.OK).json(await listAllPlanets());
 }
 
 
 export default {
-    listAllPlanet
+    list
 }

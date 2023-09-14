@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import {getAll, createNewLaunch, existsLaunchWithId, abortLaunchById} from "../../models/lanches.model";
+import {getAll, createNewLaunch, existsLaunchWithId, abortLaunchById} from "../../models/launches.model";
 import {StatusCodes} from "http-status-codes";
 import {Launch} from "../../types";
 

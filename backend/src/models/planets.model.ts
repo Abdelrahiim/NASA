@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import {parse} from "csv-parse"
 import path from "path";
+import Planets from "./planets.mongo";
 
 interface Planet {
     "kepid": number,
@@ -54,7 +55,6 @@ interface Planet {
     "koi_kepmag": number
 }
 
-const habitablePlanets: Planet[] = []
 
 function isHabitablePlanet(planet: Planet) {
     return (
@@ -73,9 +73,10 @@ export function loadPlanetsDate() {
                 comment: "#",
                 columns: true,
             }))
-            .on("data", (data) => {
+            .on("data", async (data: Planet) => {
                 if (isHabitablePlanet(data)) {
-                    habitablePlanets.push(data);
+                    await savePlanet(data);
+
                 }
             })
             .on("error", (error) => {
@@ -84,13 +85,20 @@ export function loadPlanetsDate() {
                 console.log(error);
             })
             .on("end", () => {
-                // console.log(habitablePlanets.map((planet) => planet["kepler_name"]));
-                console.log("done");
                 resolve()
             });
     })
 }
 
-export default {
-    planets: habitablePlanets
+
+async function savePlanet(planet: Planet) {
+    try {
+        await Planets.updateOne({kepler_name: planet.kepler_name}, {kepler_name: planet.kepler_name}, {upsert: true})
+    } catch (err) {
+        console.log(`We Could Not Save Planet ${err}`)
+    }
+}
+
+export async function listAllPlanets() {
+    return Planets.find({},{__v:0});
 }
