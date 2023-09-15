@@ -9,8 +9,8 @@ import {Launch} from "../../types";
  * @param res
  * @route GET /launches
  */
-function list(req: Request, res: Response) {
-    return res.status(StatusCodes.OK).json(getAll())
+async function list(req: Request, res: Response) {
+    return res.status(StatusCodes.OK).json(await getAll())
 }
 
 /**
@@ -19,7 +19,7 @@ function list(req: Request, res: Response) {
  * @param res
  * @route POST /launches
  */
-function create(req: Request<{}, {}, Launch>, res: Response) {
+async function create(req: Request<{}, {}, Launch>, res: Response) {
     const launch = req.body;
     if (!launch.mission || !launch.launchDate || !launch.destination || !launch.rocket) {
         return res.status(StatusCodes.BAD_REQUEST).json({error: "All Fields Are Mandatory"})
@@ -29,8 +29,8 @@ function create(req: Request<{}, {}, Launch>, res: Response) {
         return res.status(StatusCodes.BAD_REQUEST).json({error: "Date Is Invalid"})
 
     }
-    const createdLaunch = createNewLaunch(launch)
-    return res.status(StatusCodes.CREATED).json(createdLaunch)
+    await createNewLaunch(launch)
+    return res.status(StatusCodes.CREATED).json(launch)
 }
 
 /**
@@ -39,13 +39,18 @@ function create(req: Request<{}, {}, Launch>, res: Response) {
  * @param res
  * @route POST /launches/:id
  */
-function destroy(req: Request<{ id: string }>, res: Response) {
+async function destroy(req: Request<{ id: string }>, res: Response) {
     const launchId = Number(req.params.id);
-    if (!existsLaunchWithId(launchId)) {
+    if (!await existsLaunchWithId(launchId)) {
         return res.status(StatusCodes.NOT_FOUND).json({error: "Launch Not Found"})
     }
-    const aborted = abortLaunchById(launchId)
-    return res.status(StatusCodes.OK).json(aborted)
+    const aborted = await abortLaunchById(launchId)
+    if(!aborted){
+        return res.status(StatusCodes.BAD_REQUEST).json({
+            error:"Launch Not Aborted"
+        })
+    }
+    return res.status(StatusCodes.OK).json({ok:true})
 }
 
 

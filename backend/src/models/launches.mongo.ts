@@ -6,6 +6,7 @@ const LaunchesSchema = new Schema<Launch>({
     flightNumber: {
         type: Number,
         required: true,
+        unique:true
     },
     mission: {
         type: String,
