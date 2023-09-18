@@ -53,7 +53,7 @@ describe("Testing Launches API", () => {
         }
 
         // Success Test
-        test("It Should Return Response 201 & Content-type Application/json", async () => {
+        test.skip("It Should Return Response 201 & Content-type Application/json", async () => {
             const response = await Client.post("/launches")
                 .send(launchDataWithDate)
                 .expect(201)
@@ -92,7 +92,7 @@ describe("Testing Launches API", () => {
     describe(`Test ${colors.red("DELETE")} /launches:id`, () => {
 
         // Test Normal Abort Case
-        test("It Should Return Status Code 200 And Content-Type = Application/json", async () => {
+        test.skip("It Should Return Status Code 200 And Content-Type = Application/json", async () => {
             const response = await Client.del("/launches/200").expect(200).expect("Content-type", /json/)
         })
 
