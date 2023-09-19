@@ -25,6 +25,8 @@ app.use(express.static(path.join(__dirname,"..","public","build")))
 // Routers
 app.use("/planets", PlanetsRouter);
 app.use("/launches",LaunchesRouter )
+
+// Serve React Application After Being Built
 app.get("/*", (req, res) => {
     return res.sendFile(path.join(__dirname,"..","public","build","index.html"))
 })

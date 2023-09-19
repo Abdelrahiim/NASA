@@ -1,7 +1,14 @@
 import {Request, Response} from "express";
-import {getAll, createNewLaunch, existsLaunchWithId, abortLaunchById} from "../../models/launches.model";
+import {
+    getAll,
+    createNewLaunch,
+    existsLaunchWithId,
+    abortLaunchById,
+    getLatestLaunch
+} from "../../models/launches.model";
 import {StatusCodes} from "http-status-codes";
-import {Launch} from "../../types";
+import {Launch, RequestQueryParameters} from "../../types";
+import getPagination from "../../services/query";
 
 /**
  * Get All The Launches From The Model
@@ -9,10 +16,14 @@ import {Launch} from "../../types";
  * @param res
  * @route GET /launches
  */
-async function list(req: Request, res: Response) {
-    return res.status(StatusCodes.OK).json(await getAll())
+async function list(req: Request<{},{},{},RequestQueryParameters>, res: Response) {
+    const {skip , limit} = getPagination(req.query);
+    return res.status(StatusCodes.OK).json(await getAll(skip,limit))
 }
 
+async function listLatest(req: Request, res: Response) {
+    return res.status(StatusCodes.OK).json( await  getLatestLaunch())
+}
 /**
  * Create New Launch Mission Controller
  * @param req
@@ -56,6 +67,7 @@ async function destroy(req: Request<{ id: string }>, res: Response) {
 
 export default {
     list,
+    listLatest,
     create,
     destroy
 }

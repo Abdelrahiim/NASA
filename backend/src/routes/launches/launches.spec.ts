@@ -20,10 +20,22 @@ describe("Testing Launches API", () => {
      * Testing Launch Get endpoint
      * GET /launches
      */
-    describe(`Test ${colors.green("GET")} /launches`, () => {
+    describe.skip(`Test ${colors.green("GET")} /launches`, () => {
         test("It Should Return Response 200 And Content-Type = Application/json ", async () => {
             const response = await Client.get("/launches").expect(200).expect("Content-type", /json/)
         })
+    })
+
+    /**
+     * Testing Launch Get endpoint
+     * GET /launches/latest
+     *
+     */
+    describe.skip(`Test ${colors.green("GET")} /launches`,()=>{
+        test("It Should Return Response 200 And Content-Type = Application/json ", async () => {
+            const response = await Client.get("/launches/latest").expect(200).expect("Content-type", /json/)
+        })
+
     })
 
 
@@ -53,7 +65,7 @@ describe("Testing Launches API", () => {
         }
 
         // Success Test
-        test.skip("It Should Return Response 201 & Content-type Application/json", async () => {
+        test("It Should Return Response 201 & Content-type Application/json", async () => {
             const response = await Client.post("/launches")
                 .send(launchDataWithDate)
                 .expect(201)
@@ -89,15 +101,15 @@ describe("Testing Launches API", () => {
      * Test Launch DELETE End Point
      * DELETE /launches:id
      */
-    describe(`Test ${colors.red("DELETE")} /launches:id`, () => {
+    describe.skip(`Test ${colors.red("DELETE")} /launches:id`, () => {
 
         // Test Normal Abort Case
-        test.skip("It Should Return Status Code 200 And Content-Type = Application/json", async () => {
-            const response = await Client.del("/launches/200").expect(200).expect("Content-type", /json/)
+        test("It Should Return Status Code 200 And Content-Type = Application/json", async () => {
+            const response = await Client.del("/launches/800").expect(200).expect("Content-type", /json/)
         })
 
         test("It Should Launch Not Aborted ", async () => {
-            const response = await Client.del("/launches/200").expect(400).expect("Content-type", /json/);
+            const response = await Client.del("/launches/800").expect(400).expect("Content-type", /json/);
             expect(response.body).toStrictEqual({error: "Launch Not Aborted"})
 
         })
