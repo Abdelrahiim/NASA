@@ -4,7 +4,8 @@
   "description": "Nasa Mission Control Project with React And Express",
   "scripts": {
     "serve": "npm run dev --prefix backend",
-    "watch": "npm start --prefix frontend"
+    "watch": "npm start --prefix frontend",
+    "build-back": "npm run build --prefix backend"
   },
   "repository": {
     "type": "git",

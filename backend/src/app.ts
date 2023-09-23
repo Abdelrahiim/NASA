@@ -4,12 +4,13 @@ import PlanetsRouter from "./routes/planets/planets.router";
 import LaunchesRouter from "./routes/launches/launches.route";
 import cors from "cors"
 import path from "path";
+import helmet from "helmet";
 
 // Setting Up Express App
 const app = express();
 
 // middleware
-
+app.use(helmet())
 app.use(express.json())
 app.use(cors({
     origin:"http://localhost:3000"

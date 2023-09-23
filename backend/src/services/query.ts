@@ -1,6 +1,6 @@
 import {RequestQueryParameters} from "../types";
 
-const DEFAULT_PAGE_LIMIT = 30
+const DEFAULT_PAGE_LIMIT = 0
 const DEFAULT_PAGE_NUMBER = 1
 
 /**

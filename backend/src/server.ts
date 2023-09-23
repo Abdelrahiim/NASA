@@ -1,6 +1,8 @@
 // Libraries Import
 import colors from "colors";
-import * as http from "http";
+import * as https from "https";
+import * as fs from "fs";
+import path from "path";
 
 // Files Import
 import app from "./app";
@@ -10,8 +12,12 @@ import {loadPlanetsDate} from "./models/planets.model"
 import {loadLaunches} from "./models/launches.model";
 
 
+
 // Setting up server
-const server = http.createServer(app)
+const server = https.createServer({
+    key : fs.readFileSync(path.join(__dirname,"..","key.pem")) ,
+    cert: fs.readFileSync(path.join(__dirname,"..","cert.pem"))
+},app)
 
 
 /**
@@ -25,7 +31,7 @@ async function startServer() {
     await loadLaunches()
     // Make Server Listen on the Specified PORT
     server.listen(PORT, () => {
-            console.log(`Starting server at ${colors.blue(colors.underline(`http://127.0.0.1:${PORT}/`))}`)
+            console.log(`Starting server at ${colors.blue(colors.underline(`https://127.0.0.1:${PORT}/`))}`)
         }
     )
 }
