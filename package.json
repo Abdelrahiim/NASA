@@ -5,7 +5,10 @@
   "scripts": {
     "serve": "npm run dev --prefix backend",
     "watch": "npm start --prefix frontend",
-    "build-back": "npm run build --prefix backend"
+    "build-back": "npm run build --prefix backend",
+    "install-backend": "npm install --prefix backend",
+    "install-frontend": "npm install --prefix backend",
+    "install": "npm run install-backend && npm run install-frontend "
   },
   "repository": {
     "type": "git",
