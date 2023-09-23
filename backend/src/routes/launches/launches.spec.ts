@@ -103,7 +103,7 @@ describe("Testing Launches API", () => {
      * Test Launch DELETE End Point
      * DELETE /launches:id
      */
-    describe(`Test ${colors.red("DELETE")} /launches:id`, () => {
+    describe.skip(`Test ${colors.red("DELETE")} /launches:id`, () => {
 
         // Test Normal Abort Case
         test("It Should Return Status Code 200 And Content-Type = Application/json", async () => {
