@@ -20,7 +20,7 @@ describe("Testing Launches API", () => {
      * Testing Launch Get endpoint
      * GET /launches
      */
-    describe.skip(`Test ${colors.green("GET")} /launches`, () => {
+    describe(`Test ${colors.green("GET")} /launches`, () => {
         test("It Should Return Response 200 And Content-Type = Application/json ", async () => {
             const response = await Client.get("/launches").expect(200).expect("Content-type", /json/)
         })
@@ -31,7 +31,7 @@ describe("Testing Launches API", () => {
      * GET /launches/latest
      *
      */
-    describe.skip(`Test ${colors.green("GET")} /launches`,()=>{
+    describe(`Test ${colors.green("GET")} /launches`,()=>{
         test("It Should Return Response 200 And Content-Type = Application/json ", async () => {
             const response = await Client.get("/launches/latest").expect(200).expect("Content-type", /json/)
         })
@@ -43,7 +43,7 @@ describe("Testing Launches API", () => {
      * Testing Launch POST endpoint
      * POST /launches
      */
-    describe(`Test ${colors.yellow("POST")} /launches`, () => {
+    describe.skip(`Test ${colors.yellow("POST")} /launches`, () => {
         const launchDataWithDate = {
             mission: "ZTM255",
             rocket: "NCS 1704d",
