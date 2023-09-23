@@ -2,6 +2,7 @@ import supertest from "supertest";
 import app from "../../app";
 import colors from "colors";
 import {connectMongo, disconnectMongo} from "../../services/mongo"
+import {loadPlanetsDate} from "../../models/planets.model";
 
 
 // // Define Client
@@ -10,7 +11,8 @@ const Client = supertest(app);
 describe("Testing Launches API", () => {
     // Connect The Test Environment To the DataBase before all the Tests
     beforeAll(async () => {
-        await connectMongo()
+        await connectMongo();
+        await loadPlanetsDate();
     })
     // Disconnect From The Database After All Tests Done
     afterAll(async () => {
@@ -43,7 +45,7 @@ describe("Testing Launches API", () => {
      * Testing Launch POST endpoint
      * POST /launches
      */
-    describe.skip(`Test ${colors.yellow("POST")} /launches`, () => {
+    describe(`Test ${colors.yellow("POST")} /launches`, () => {
         const launchDataWithDate = {
             mission: "ZTM255",
             rocket: "NCS 1704d",
@@ -101,15 +103,15 @@ describe("Testing Launches API", () => {
      * Test Launch DELETE End Point
      * DELETE /launches:id
      */
-    describe.skip(`Test ${colors.red("DELETE")} /launches:id`, () => {
+    describe(`Test ${colors.red("DELETE")} /launches:id`, () => {
 
         // Test Normal Abort Case
         test("It Should Return Status Code 200 And Content-Type = Application/json", async () => {
-            const response = await Client.del("/launches/800").expect(200).expect("Content-type", /json/)
+            const response = await Client.del("/launches/100").expect(200).expect("Content-type", /json/)
         })
 
         test("It Should Launch Not Aborted ", async () => {
-            const response = await Client.del("/launches/800").expect(400).expect("Content-type", /json/);
+            const response = await Client.del("/launches/100").expect(400).expect("Content-type", /json/);
             expect(response.body).toStrictEqual({error: "Launch Not Aborted"})
 
         })

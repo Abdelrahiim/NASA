@@ -21,9 +21,16 @@ async function list(req: Request<{},{},{},RequestQueryParameters>, res: Response
     return res.status(StatusCodes.OK).json(await getAll(skip,limit))
 }
 
+/**
+ * Get The Latest Launch in the Database
+ * @param req
+ * @param res
+ * @route GET /launches/latest
+ */
 async function listLatest(req: Request, res: Response) {
     return res.status(StatusCodes.OK).json( await  getLatestLaunch())
 }
+
 /**
  * Create New Launch Mission Controller
  * @param req
